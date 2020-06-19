@@ -29,7 +29,7 @@
                     <h3 class="uk-card-title uk-heading-divider">Характеристики</h3>
                     <p><span class="uk-text-bold">Описание:</span> {{product.description}}</p>
                     <p><span class="uk-text-bold">Артикул:</span> {{product.art}}</p>
-                    <p><span class="uk-text-bold">Производитель:</span> <a v-bind:href="product.link">{{product.manufacturer}}</a></p>
+                    <p><span class="uk-text-bold">Производитель:</span> <a :href="product.link">{{product.manufacturer}}</a></p>
                     <p><span class="uk-text-bold">Вес:</span> {{product.weight | weightGr}}</p>
                     <p><span class="uk-text-bold">Класс катушки:</span> {{product.class}}</p>
                     <p><span class="uk-text-bold">Количество подшипников:</span> {{product.bearing}}</p>
