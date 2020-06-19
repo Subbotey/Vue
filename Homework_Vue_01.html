@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Первая домашка по Vue</title>
+</head>
+
+<body>
+    <div id="app" class="uk-width-3-4 uk-align-center uk-margin-small-top">
+        <div>
+            <h1 class="uk-heading-divider">Первая домашка по Vue</h1>
+        </div>
+        <div class="uk-text-center uk-child-width-1-2@m uk-grid-match" uk-grid>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; repeat: true">
+                    <h3 class="uk-heading-divider uk-card-title">{{product.title}}</h3>
+                    <p><img :src="product.url"></p>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body uk-text-left" uk-scrollspy="cls: uk-animation-slide-right; repeat: true">
+                    <h3 class="uk-card-title uk-heading-divider">Характеристики</h3>
+                    <p><span class="uk-text-bold">Описание:</span> {{product.description}}</p>
+                    <p><span class="uk-text-bold">Артикул:</span> {{product.art}}</p>
+                    <p><span class="uk-text-bold">Производитель:</span> <a v-bind:href="product.link">{{product.manufacturer}}</a></p>
+                    <p><span class="uk-text-bold">Вес:</span> {{product.weight | weightGr}}</p>
+                    <p><span class="uk-text-bold">Класс катушки:</span> {{product.class}}</p>
+                    <p><span class="uk-text-bold">Количество подшипников:</span> {{product.bearing}}</p>
+                    <p><span class="uk-text-bold">Цена:</span> {{product.price | formatPrice}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="user" class="uk-width-3-4 uk-align-center uk-margin-small-top">
+        <div>
+            <h1 class="uk-heading-divider">Данные пользователя</h1>
+        </div>
+        <div class="uk-text-center uk-child-width-1-2@m uk-grid-match" uk-grid>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; repeat: true">
+                    <h3 class="uk-text-left uk-heading-divider uk-card-title">{{name + ' ' + lastname}}</h3>
+                    <p><img :src="img"></p>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body uk-text-left" uk-scrollspy="cls: uk-animation-slide-right; repeat: true">
+                    <h3 class="uk-card-title uk-heading-divider">Личные данные</h3>
+                    <p><span class="uk-text-bold">Имя:</span> {{name}}</p>
+                    <p><span class="uk-text-bold">Фамилия:</span> {{lastname}}</p>
+                    <p><span class="uk-text-bold">Возраст:</span>{{age}}</p>
+                    <p><span class="uk-text-bold">Email:</span> {{email}}</p>
+                    <p><span class="uk-text-bold">Логин:</span> {{login}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/Homework_Vue_01.js"></script>
+</body>
+
+</html>
