@@ -26,13 +26,13 @@ let webStore = new Vue({
 });
 
 let user = new Vue({
-	el: '#user',
-	data: {
-		name: 'Сергей',
-		lastname: 'Семёнов',
-		age: '31 год',
-		login: 'SergiO415',
-		email: 'SergiO415@mail.ru',
-		img: 'img/8biticon.jpg',
-	},
+    el: '#user',
+    data: {
+        name: 'Сергей',
+        lastname: 'Семёнов',
+        age: '31 год',
+        login: 'SergiO415',
+        email: 'SergiO415@mail.ru',
+        img: 'img/8biticon.jpg',
+    },
 });
