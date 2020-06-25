@@ -1,4 +1,5 @@
 // Первая задача
+// Простой поиск без обнуления предыдущих результатов
 
 let app = new Vue({
     el: '#app',
@@ -62,10 +63,13 @@ let app = new Vue({
 
             if (this.issue.length == 0) {
                 alert('По вашему запросу ни чего не найдено.');
+                location.reload()
             }
         }
     },
 });
+
+// Вторая задача
 
 let app2 = new Vue ({
     el: '#app2',
