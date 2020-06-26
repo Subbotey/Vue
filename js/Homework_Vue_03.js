@@ -1,5 +1,4 @@
 // Первая задача
-// Простой поиск без обнуления предыдущих результатов
 
 let app = new Vue({
     el: '#app',
@@ -8,12 +7,12 @@ let app = new Vue({
                 <p class="uk-article-meta">Подсказки: звезд, затмение, черная, такое.</p>
 
                 <a href="#" class="uk-margin-small-right" uk-icon="search" v-on:click='search'></a>
-                <form class="uk-search uk-search-default">
+                <form class="uk-margin-small uk-search uk-search-default">
                     <input v-model="request" class="uk-search-input" type="search" placeholder="Поиск...">
                 </form>
                 <div v-if="request" class="uk-margin-small">Вы искали: {{request}}</div>
                 <div v-for="result in issue">
-                    <div class="uk-width-1-3 uk-card uk-card-default uk-card-body uk-margin-small uk-animation-scale-down">
+                    <div class="uk-width-1-3 uk-card uk-card-default uk-card-body uk-margin-small">
                         <h3 class="uk-card-title"><a :href="result.url">{{result.name}}</a></h3>
                         <img class="uk-align-center" :src="result.img" alt="">
                     </div>
@@ -21,49 +20,56 @@ let app = new Vue({
             </div>
 `,
     data: {
-        request:'',
-        issue:[],
+        request: '',
+        issue: [],
         articles: [{
             name: 'Сколько звезд в нашей галактике?',
             url: 'https://www.astronews.ru/cgi-bin/mng.cgi?page=articles&id=20200419004552',
             img: 'img/article1.jpg',
-        },{
+        }, {
             name: 'Что такое Лунное затмение?',
             url: 'https://www.astronews.ru/cgi-bin/mng.cgi?page=articles&id=20200415135436',
             img: 'img/article2.jpg',
-        },{
+        }, {
             name: 'Может ли черная дыра уничтожить Землю?',
             url: 'https://www.astronews.ru/cgi-bin/mng.cgi?page=articles&id=20200415133714',
             img: 'img/article3.jpg',
-        },{
+        }, {
             name: 'Что такое затмение?',
             url: 'https://www.astronews.ru/cgi-bin/mng.cgi?page=articles&id=20200415135230',
             img: 'img/article4.jpg',
         }],
     },
     methods: {
-        search: function () {
+        search: function() {
+            let that = this;
             let str = this.request;
             let re = new RegExp(str, 'ig');
+            this.issue = [];
+            check(str)
 
-            for (let i = 0; i < this.articles.length; i++) {
-                let str2 = this.articles[i].name;
-                let t = str2.search(re);
-                console.log(t);
-
-                if (t == 0) {
+            function check(str) {
+                if (str === "") {
                     alert('Введите запрос');
-                    break;
-                } else if (t == -1) {
-                    continue;
+                    return;
                 } else {
-                    this.issue.push(this.articles[i]);
-                }
-            }
+                    for (let i = 0; i < that.articles.length; i++) {
+                        let str2 = that.articles[i].name;
+                        let t = str2.search(re);
+                        console.log(t);
 
-            if (this.issue.length == 0) {
-                alert('По вашему запросу ни чего не найдено.');
-                location.reload()
+                        if (t == -1) {
+                            continue;
+                        } else {
+                            that.issue.push(that.articles[i]);
+                        }
+                    }
+                }
+
+                if (that.issue.length == 0) {
+                    alert('По вашему запросу ни чего не найдено.');
+                    location.reload()
+                }
             }
         }
     },
@@ -71,7 +77,7 @@ let app = new Vue({
 
 // Вторая задача
 
-let app2 = new Vue ({
+let app2 = new Vue({
     el: '#app2',
     template: `<div class="uk-align-center uk-padding uk-width-3-4">
                 <h1 class="uk-article-meta uk-heading-line"><span>Редактируемый текст</span></h1>
