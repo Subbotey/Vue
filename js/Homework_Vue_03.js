@@ -8,7 +8,7 @@ let app = new Vue({
 
                 <a href="#" class="uk-margin-small-right" uk-icon="search" v-on:click='search'></a>
                 <form class="uk-margin-small uk-search uk-search-default">
-                    <input v-model="request" class="uk-search-input" type="search" placeholder="Поиск...">
+                    <input @keyup.enter='search' v-model="request" class="uk-search-input" type="search" placeholder="Поиск...">
                 </form>
                 <div v-if="request" class="uk-margin-small">Вы искали: {{request}}</div>
                 <div v-for="result in issue">
