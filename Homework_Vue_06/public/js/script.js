@@ -1,4 +1,5 @@
-// Первая задача
+// Первая задача и вторая задачи
+// Папку npm_modules не добавлял
 
 window.arrReel = [
 	{
@@ -232,8 +233,7 @@ const Product = {
 	  weightGr: function(value) {
 		  return value + ' гр.';
 	  }
-  },
-
+  }
 }
 
 const routes = [
