@@ -34,9 +34,24 @@ Vue.component('Ten', {
 				alert('Ура вы прошли игру!');
 			}
 		},
+		newGame() {
+			this.cells = [];
+			this.count = 1;
+			for (let i = 1; i < 101; i++) {
+				const fontSize = `${this.getRandom(0.7, 1.3)}em`;
+				const fontClr = `rgb(${this.getRandom(0, 245)},${this.getRandom(0, 245)},${this.getRandom(0, 245)})`;
+				const t = {
+					id: i,
+					selected: false,
+					styleFont: `font-size: ${fontSize}; color: ${fontClr};`,
+				};
+				this.cells.push(t);
+			}
+			this.shuffleCell(this.cells);
+		},
 	},
 	template: `<div>
-	<a class="uk-button uk-button-default uk-margin-bottom" href="">Новая игра</a>
+	<a class="uk-button uk-button-default uk-margin-bottom" v-on:click.prevent="newGame">Новая игра</a>
 	<a class="uk-button uk-button-default uk-margin-bottom" v-on:click.prevent="mix">Перемешать</a>
 	<div class="field-ten uk-card uk-card-default">
 	<transition-group name="fade" tag="div">
@@ -86,9 +101,24 @@ Vue.component('Five', {
 				alert('Ура вы прошли игру!');
 			}
 		},
+		newGame() {
+			this.cells = [];
+			this.count = 1;
+			for (let i = 1; i < 26; i++) {
+				const fontSize = `${this.getRandom(0.7, 1.3)}em`;
+				const fontClr = `rgb(${this.getRandom(0, 245)},${this.getRandom(0, 245)},${this.getRandom(0, 245)})`;
+				const t = {
+					id: i,
+					selected: false,
+					styleFont: `font-size: ${fontSize}; color: ${fontClr};`,
+				};
+				this.cells.push(t);
+			}
+			this.shuffleCell(this.cells);
+		},
 	},
 	template: `<div>
-	<a class="uk-button uk-button-default uk-margin-bottom" href="">Новая игра</a>
+	<a class="uk-button uk-button-default uk-margin-bottom" v-on:click.prevent="newGame">Новая игра</a>
 	<a class="uk-button uk-button-default uk-margin-bottom" v-on:click.prevent="mix">Перемешать</a>
 	<div class="field-five uk-card uk-card-default">
 	<transition-group name="fade" tag="div">
