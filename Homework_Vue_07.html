@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<link rel="stylesheet" href="./css/Homework_Vue_07.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Седьмая домашка по Vue</title>
+</head>
+
+<body>
+	<div id="app" class="uk-card uk-card-body">
+		<div class="uk-width-3-4 uk-align-center" uk-grid>
+			<ul uk-tab>
+				<li class="uk-active" @click="switchView('Ten')"><a href="#">Поле 10х10</a></li>
+				<li @click="switchView('Five')"><a href="#">Поле 5х5</a></li>
+			</ul>
+			<transition name="next" mode="out-in">
+				<component :is="currentView" :shuffle-cell="shuffle" :get-random="getRandom"></component>
+			</transition>
+
+		</div>
+	</div>
+
+	<script src="./js/Homework_Vue_07.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+.field-ten {
+	width: 800px;
+	margin: 0em;
+	padding: 0em;
+}
+
+.field-five {
+	width: 400px;
+	margin: 0em;
+	padding: 0em;
+}
+
+.cell {
+	display: flex;
+	height: 77px;
+	width: 77px;
+	border: 1px solid rgb(206, 206, 206);
+	border-radius: 3px;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	user-select: none;
+	transition: transform 1s linear;
+}
+
+.selected {
+	background-color: rgb(239, 252, 253);
+	transition: background-color .5s easeOutCubic;
+}
+
+.field-ten div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.field-five div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.next-enter-active,
+.next-leave-active {
+	transition: opacity .5s;
+}
+
+.next-enter,
+.next-leave-to
+
+/* .fade-leave-active до версии 2.1.8 */
+	{
+	opacity: 0;
+}
