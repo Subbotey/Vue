@@ -118,6 +118,7 @@ const app = new Vue({
 				[array[i], array[j]] = [array[j], array[i]];
 			}
 		},
+		
 		getRandom(min, max) {
 			const rand = min + Math.random() * (max + 1 - min);
 			return (Math.round((rand) * 100) / 100);
